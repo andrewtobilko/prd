@@ -10,10 +10,6 @@ Class Animals.Lab2
     Глобал і функції роботи з ним повинні мати сенс.
 
     */
-    ClassMethod Task()
-    {
-        read "Enter value", name, !
-    }
 
     ClassMethod PopulateGlobal()
     {
@@ -35,9 +31,18 @@ Class Animals.Lab2
         set ^Animals("area")  = "25 square miles"
     }
 
-    ClassMethod PrintGeneralInformation()
+    ClassMethod PrintNumberOfGivenSpecies()
     {
-
+        read "Enter the animal name: ", input, !
+        set node = $query(^Animals(""))
+        while (node '= "") {
+            if (($qlength(node) >= 2) && ($qsubscript(node, 2) = input)) {
+                write "We have got ", $get(@node), " ", input, "s in '", $qsubscript(node, 1), "'!", !
+                return
+            }
+            set node = $query(@node)
+         }
+         write "Unfortunately, we do not have animals of ", input, " species.",!
     }
 
 }
