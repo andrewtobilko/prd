@@ -35,8 +35,9 @@ public class Assignment {
     //        readValue(SupportedType.INT, "section1", "cheetah");
     //        readValue(SupportedType.LIST, "section1", "popularNames");
     public static void main(String[] args) {
-        //read();
-        editOrCreate();
+//        read();
+//        editOrCreate();
+        delete();
     }
 
     private static void editOrCreate() {
@@ -81,6 +82,21 @@ public class Assignment {
             list.append(s);
         }
         return list;
+    }
+
+    private static void delete() {
+        try {
+            System.out.print("Enter comma-separated keys:");
+
+            final String[] keys = scanner.nextLine().split(",");
+            if (keys.length > 1) {
+                reference.killNode((Object[]) keys);
+            } else {
+                reference.killNode((Object) keys);
+            }
+        } catch (GlobalsException exception) {
+            System.out.println("Something went wrong. [You likely mistyped the type.]");
+        }
     }
 
     private static void read() {

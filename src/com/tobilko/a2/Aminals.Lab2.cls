@@ -19,6 +19,10 @@ Class Animals.Lab2
 
         set ^Animals("section1") = "section 1 comprises lions and cheetahs"
         set ^Animals("section1", "lion") = 5
+        set ^Animals("section1", "lion", "food", "meat") = "10kg"
+        set ^Animals("section1", "lion", "food", "pills", "pill A") = "3/day"
+        set ^Animals("section1", "lion", "food", "pills", "pill B") = "1/week"
+        set ^Animals("section1", "lion", "food", "") = 5
         set ^Animals("section1", "cheetah") = 7
         set ^Animals("section1", "popularNames") = $lb("James", "Harry", "Ann", "Richard")
 
